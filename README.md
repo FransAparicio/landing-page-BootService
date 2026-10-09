@@ -32,5 +32,7 @@ git remote add origin https://github.com/FransAparicio/landing-page-BootService.
 - Enviar los cambios alm repositorio remoto
 
 ```
+git push origin master
+o
 git push -u origin master
 ```
