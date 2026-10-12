@@ -1,8 +1,8 @@
 (() => {
   const toggle = document.querySelector('#mobile-toggle');
   const mobile = document.querySelector('#mobile-nav');
-  function closeMenu(){mobile.classList.add('hidden');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menú');toggle.textContent='☰';}
-  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';mobile.classList.toggle('hidden',open);toggle.setAttribute('aria-expanded',String(!open));toggle.setAttribute('aria-label',open?'Abrir menú':'Cerrar menú');toggle.textContent=open?'☰':'×';});
+  function closeMenu(){mobile.classList.add('hidden');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menú');toggle.innerHTML='<i aria-hidden="true" class="bi bi-list"></i>';}
+  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';mobile.classList.toggle('hidden',open);toggle.setAttribute('aria-expanded',String(!open));toggle.setAttribute('aria-label',open?'Abrir menú':'Cerrar menú');toggle.innerHTML=open?'<i aria-hidden="true" class="bi bi-list"></i>':'<i aria-hidden="true" class="bi bi-x"></i>';});
   mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   const slides=[...document.querySelectorAll('.hero-slide')];const dots=[...document.querySelectorAll('.slide-dot')];const hero=document.querySelector('.hero');let index=0,timer;
   function show(n){index=(n+slides.length)%slides.length;slides.forEach((s,i)=>{const active=i===index;s.classList.toggle('active',active);s.setAttribute('aria-hidden',String(!active));s.querySelectorAll('a').forEach(a=>a.tabIndex=active?0:-1);});dots.forEach((d,i)=>{d.classList.toggle('selected',i===index);d.setAttribute('aria-selected',String(i===index));});}
