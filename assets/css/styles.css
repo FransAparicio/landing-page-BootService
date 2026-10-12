@@ -70,6 +70,19 @@ body {
     color: var(--leaf);
 }
 
+/* Enlace activo por defecto: línea roja siempre visible + fondo rojo bajito tipo botón */
+.nav-a.nav-a-active {
+    color: var(--red);
+    background: rgba(198, 40, 40, .03);
+    border: 1px solid rgba(198, 40, 40, .10);
+    border-radius: 10px;
+    padding: 6px 12px;
+}
+
+.nav-a.nav-a-active::after {
+    right: 0;
+}
+
 .nav-a::after {
     content: "";
     position: absolute;
@@ -263,6 +276,12 @@ body {
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, .12);
     box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .55);
+}
+
+/* Imagen ancha (16:9): entra completa sin recortar ni deformar */
+.hero-image img.hero-image-wide {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
 }
 
 .image-caption {
@@ -635,7 +654,7 @@ body {
 }
 
 .select2-container .select2-selection--single {
-    height: 51px;
+    height: 52px;
     background: #f8fafc;
     border: 1.5px solid #e2e8f0;
     border-radius: 14px;
@@ -650,8 +669,16 @@ body {
     color: var(--navy);
     font-family: inherit;
     font-size: 15px;
-    line-height: 48px;
+    line-height: 49px;
     padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.select2-selection__rendered .bi {
+    font-size: 16px;
+    color: var(--leaf);
 }
 
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
@@ -659,7 +686,7 @@ body {
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {
-    height: 49px;
+    height: 50px;
     right: 14px;
     width: 16px;
 }
@@ -684,6 +711,12 @@ body {
     box-shadow: 0 0 0 4px rgba(18, 124, 74, .12);
 }
 
+/* El label se ilumina al enfocar el select (toque Material) */
+.contact-form:has(.select2-container--focus) label[for="servicio"],
+.contact-form:has(.select2-container--open) label[for="servicio"] {
+    color: var(--leaf);
+}
+
 .select2-dropdown {
     background: #fff;
     border: 1.5px solid #e2e8f0;
@@ -704,12 +737,26 @@ body {
     font-family: inherit;
     font-size: 15px;
     color: var(--navy);
-    padding: 10px 12px;
+    padding: 11px 12px;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.select2-results__option .bi {
+    font-size: 16px;
+    width: 18px;
+    text-align: center;
+    color: var(--leaf);
 }
 
 .select2-results__option--highlighted {
     background: rgba(18, 124, 74, .1);
+    color: var(--brand);
+}
+
+.select2-results__option--highlighted .bi {
     color: var(--brand);
 }
 
